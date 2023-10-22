@@ -7,6 +7,7 @@ body{
     justify-content: space-around;
     align-items: flex-end;
     height: 90vh;
+    flex-direction: column;
 
 
 
@@ -57,4 +58,22 @@ body{
 .navigation div{
     width: 6vw;
     
+}
+.place-for-numbers{
+    display: flex;
+    justify-content: center;
+    border-bottom: solid gray 2px;
+    width: 100vw;
+    height: 30vh;
+}
+.number-style{
+    font-size: 40px;
+    font-weight: 600;
+    text-shadow: 3px black;
+    color: black;
+    text-align: center;
+    left: 300px;
+    position: absolute;
+    top:260px;
+
 }
