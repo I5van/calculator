@@ -1,5 +1,5 @@
 body{
-    overflow-y: hidden;
+    overflow: hidden;
 }
 .content{
     width: 100%;
@@ -17,10 +17,11 @@ body{
     display: flex;
     justify-content: center;
     flex-direction: column;
+    overflow: hidden;
 }
 .buttons-row{
     display: flex;
-    width: 100%;
+    width: 90vw;
     justify-content: space-around;
     
     height: 65px;
@@ -61,10 +62,11 @@ body{
 }
 .place-for-numbers{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     border-bottom: solid gray 2px;
     width: 100vw;
     height: 30vh;
+    align-items: flex-end;
 }
 .number-style{
     font-size: 40px;
@@ -72,13 +74,11 @@ body{
     text-shadow: 3px black;
     color: black;
     text-align: center;
-    left: 300px;
-    position: absolute;
-    top:260px;
+  
 
 }
 .buttons-card{
-    height: 20vh;
+
     width: 5vw;
     font-size: 12px;
     font-weight: 600;
@@ -97,4 +97,11 @@ body{
 }
 .card-content{
     padding-right: 100px;
+    overflow: hidden;
+}
+.icons-content{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
