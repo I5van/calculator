@@ -29,19 +29,53 @@ else{
        if(target.getAttribute("id").slice(4)=="percent"){
         clickInput.innerHTML=clickInput.innerHTML/100
        }
+       if(target.getAttribute("id").slice(4)=="dot"){
+        clickInput.innerHTML=clickInput.innerHTML+"."
+       }
        if(target.getAttribute("id").slice(4)=="minus"){
         if(buffer==""){
             buffer= clickInput.innerHTML
             clickInput.innerHTML=""
             action="minus"
         }
-     
-
-       }
+        }
+        if(target.getAttribute("id").slice(4)=="division"){
+            if(buffer==""){
+                buffer= clickInput.innerHTML
+                clickInput.innerHTML=""
+                action="division"
+            }
+            }
+            if(target.getAttribute("id").slice(4)=="mult"){
+                if(buffer==""){
+                    buffer= clickInput.innerHTML
+                    clickInput.innerHTML=""
+                    action="mult"
+                }
+            }
+            if(target.getAttribute("id").slice(4)=="plus"){
+                if(buffer==""){
+                    buffer= clickInput.innerHTML
+                    clickInput.innerHTML=""
+                    action="plus"
+                }
+                }
        if(target.getAttribute("id").slice(4)=="equel"){
         if(action=="minus"){
             let secondNumber=clickInput.innerHTML
             clickInput.innerHTML=buffer-secondNumber
+        }
+        if(action=="division"){
+            let secondNumber=clickInput.innerHTML
+            clickInput.innerHTML=buffer/secondNumber
+        }
+        if(action=="mult"){
+            let secondNumber=clickInput.innerHTML
+            clickInput.innerHTML=buffer*secondNumber
+        }
+        if(action=="plus"){
+            let secondNumber=clickInput.innerHTML
+            clickInput.innerHTML=buffer+secondNumber
         }
        }
 }
