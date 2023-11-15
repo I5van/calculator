@@ -1,6 +1,6 @@
 let buffer = ""
 let action = ""
-
+let body = document.querySelector("body")
 let calculatorButtons = document.querySelectorAll(`*[id^="btn"]`)
 let clickInput = document.querySelector(".number-style")
 console.log(calculatorButtons)
@@ -25,16 +25,26 @@ else{
     }
     if(target.getAttribute("id").slice(4)=="clean"){
         clickInput.innerHTML=""
+        buffer=""
        }
        if(target.getAttribute("id").slice(4)=="percent"){
         clickInput.innerHTML=clickInput.innerHTML/100
        }
        if(target.getAttribute("id").slice(4)=="dot"){
+        if(clickInput.innerHTML!=""&& clickInput.innerHTML[clickInput.innerHTML.length-1]!="."){
         clickInput.innerHTML=clickInput.innerHTML+"."
+        }
+        else{
+            clickInput=clickInput
+        }
        }
        if(target.getAttribute("id").slice(4)=="minus"){
         if(buffer==""){
             buffer= clickInput.innerHTML
+            clickInput.innerHTML=""
+            action="minus"
+        }
+        else{
             clickInput.innerHTML=""
             action="minus"
         }
@@ -45,10 +55,18 @@ else{
                 clickInput.innerHTML=""
                 action="division"
             }
+            else{
+                clickInput.innerHTML=""
+                action="division"
+            }
             }
             if(target.getAttribute("id").slice(4)=="mult"){
                 if(buffer==""){
                     buffer= clickInput.innerHTML
+                    clickInput.innerHTML=""
+                    action="mult"
+                }
+                else{
                     clickInput.innerHTML=""
                     action="mult"
                 }
@@ -59,23 +77,31 @@ else{
                     clickInput.innerHTML=""
                     action="plus"
                 }
+                else{
+                    clickInput.innerHTML=""
+                    action="plus"
+                }
                 }
        if(target.getAttribute("id").slice(4)=="equel"){
         if(action=="minus"){
             let secondNumber=clickInput.innerHTML
             clickInput.innerHTML=buffer-secondNumber
+            buffer = clickInput.innerHTML
         }
         if(action=="division"){
             let secondNumber=clickInput.innerHTML
             clickInput.innerHTML=buffer/secondNumber
+            buffer = clickInput.innerHTML
         }
         if(action=="mult"){
             let secondNumber=clickInput.innerHTML
-            clickInput.innerHTML=buffer*secondNumber
+            clickInput.innerHTML=Number(buffer)*Number(secondNumber)
+            buffer = clickInput.innerHTML
         }
         if(action=="plus"){
             let secondNumber=clickInput.innerHTML
-            clickInput.innerHTML=buffer+secondNumber
+            clickInput.innerHTML=Number(buffer) + Number(secondNumber)
+            buffer = clickInput.innerHTML
         }
        }
 }
@@ -83,3 +109,20 @@ else{
 for(let i =0; i<calculatorButtons.length;i++){
     calculatorButtons[i].onclick=buttonClick
 }
+let startTouch=0
+let finalTouch = 0
+body.addEventListener('touchstart', (event) => {
+    console.log('Вы приложили палец к элементу')
+    console.log(event.touches[0])
+    startTouch= event.touches[0].clientX
+
+  })
+  body.addEventListener('touchmove', (event) => {
+    console.log('По мне ведут пальцем')
+  })
+  body.addEventListener('touchend', (event) => {
+    console.log('Прикосновение закончено')
+    console.log(event.changedTouches[0])
+    finalTouch=event.changedTouches[0].clientX
+  })
+      
