@@ -125,4 +125,11 @@ body.addEventListener('touchstart', (event) => {
     console.log(event.changedTouches[0])
     finalTouch=event.changedTouches[0].clientX
   })
-      
+  function swap(){
+    if(finalTouch>startTouch){
+        window.location.href = "icons.html"
+    }
+    if(finalTouch<startTouch){
+        window.location.href = "icons(2).html"
+    }
+  }
