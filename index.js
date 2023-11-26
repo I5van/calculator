@@ -124,12 +124,24 @@ body.addEventListener('touchstart', (event) => {
     console.log('Прикосновение закончено')
     console.log(event.changedTouches[0])
     finalTouch=event.changedTouches[0].clientX
+
+    swap()
+    
+
   })
+  let fileNames=["/icons.html","/index.html","/icons(2).html"]
+  if(localStorage.getItem("path")==null){
+    localStorage.setItem("path",fileNames.indexOf(window.location.pathnaname))
+  }
   function swap(){
+   let n = localStorage.getItem("path")
     if(finalTouch>startTouch){
-        window.location.href = "icons.html"
+        if(n!=0){
+            n=n-1
+            localStorage.setItem("path",n)
+            window.location.href=fileNames[n]
+        }
     }
-    if(finalTouch<startTouch){
-        window.location.href = "icons(2).html"
-    }
+   
+
   }

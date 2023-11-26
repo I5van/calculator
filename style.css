@@ -48,6 +48,7 @@ body{
     justify-content: center;
     align-items: center;
     width: 14vw;
+    
 
 }
 .navigation{
@@ -97,7 +98,7 @@ body{
 }
 .card-content{
     padding-right: 100px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .icons-content{
     overflow: hidden;
