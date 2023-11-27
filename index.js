@@ -130,24 +130,26 @@ body.addEventListener('touchstart', (event) => {
   })
   let fileNames=["/icons.html","/index.html","/icons(2).html"]
   if(localStorage.getItem("path")==null){
-    localStorage.setItem("path",fileNames.indexOf(window.location.pathnaname))
+    localStorage.setItem("path",fileNames.indexOf(window.location.pathname))
   }
   function swap(){
-   let n = localStorage.getItem("path")
+   let n =Number( localStorage.getItem("path"))
     if(finalTouch>startTouch){
         if(n!=0){
             n=n-1
+            console.log(n)
             localStorage.setItem("path",n)
             console.log(fileNames[n])
-            window.location.href="127.0.0.1:5500"+fileNames[n]
+            window.location.href=fileNames[n]
         }
     }
-    if(finalTouch>startTouch){
+    if(finalTouch<startTouch){
         if(n!=fileNames.length-1){
             n=n+1
+            console.log(n)
             localStorage.setItem("path",n)
             console.log(fileNames[n])
-            window.location.href="127.0.0.1:5500"+fileNames[n]
+            window.location.href=fileNames[n]
         }
     }
 
