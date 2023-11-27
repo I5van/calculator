@@ -124,8 +124,7 @@ body.addEventListener('touchstart', (event) => {
     console.log('Прикосновение закончено')
     console.log(event.changedTouches[0])
     finalTouch=event.changedTouches[0].clientX
-
-    swap()
+     swap()
     
 
   })
@@ -139,9 +138,17 @@ body.addEventListener('touchstart', (event) => {
         if(n!=0){
             n=n-1
             localStorage.setItem("path",n)
-            window.location.href=fileNames[n]
+            console.log(fileNames[n])
+            window.location.href="127.0.0.1:5500"+fileNames[n]
         }
     }
-   
+    if(finalTouch>startTouch){
+        if(n!=fileNames.length-1){
+            n=n+1
+            localStorage.setItem("path",n)
+            console.log(fileNames[n])
+            window.location.href="127.0.0.1:5500"+fileNames[n]
+        }
+    }
 
   }
